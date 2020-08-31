@@ -1,0 +1,670 @@
+{
+	"info": {
+		"_postman_id": "46de3009-4274-4fa9-93d6-56f6594332a3",
+		"name": "ESSIM profile panels",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Electricity Households (E1A)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Electricity Households (E1A)\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"nedu_elektriciteit_2015-2018\",\r\n            \"field\": \"E1A\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"E1A\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Electricity shops, office, education (E3A)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Electricity shops, office, education (E3A)\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"nedu_elektriciteit_2015-2018\",\r\n            \"field\": \"E3A\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"E3A\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Electricity prison (E3B)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Electricity prison (E3B)\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"nedu_elektriciteit_2015-2018\",\r\n            \"field\": \"E3B\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"E3B\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Electricity hotel, hospital (E3C)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Electricity hotel, hospital (E3C)\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"nedu_elektriciteit_2015-2018\",\r\n            \"field\": \"E3C\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"E3C\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Electricity greenhouses (E3D)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Electricity greenhouses (E3D)\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"nedu_elektriciteit_2015-2018\",\r\n            \"field\": \"E3D\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"E3D\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Solar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Solar\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"solar_relative_2011-2016\",\r\n            \"field\": \"value\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"solar irradiance\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Heating households (G1A)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Heating households (G1A)\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"nedu_aardgas_2015-2018\",\r\n            \"field\": \"G1A\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"G1A\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Heating ... (G2A)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Heating ... (G2A)\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"nedu_aardgas_2015-2018\",\r\n            \"field\": \"G2A\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"G2A\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Heating ... (G2C)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Heating ... (G2C)\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"nedu_aardgas_2015-2018\",\r\n            \"field\": \"G2C\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"G2C\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Constant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Constant\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"constant\",\r\n            \"field\": \"value\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"constant profile\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wind op land",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Wind op land\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"wind-2015\",\r\n            \"field\": \"Wind-op-land\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"wind profile\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wind op zee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Wind op zee\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"wind-2015\",\r\n            \"field\": \"Wind-op-zee\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"wind profile\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Biomassa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Biomassa\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"biomassa-2015\",\r\n            \"field\": \"value\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"biomass profile\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elektriciteit Curacao",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Elektriciteit Curacao\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"elektr-curacao-2015\",\r\n            \"field\": \"elektr\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"electricity profile\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wind Curacao",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJrIjoicXpIcTdYekVCUnB1dE00dGg4bDNNR2hKVnlNbTA3b3AiLCJuIjoicGFuZWwtLXNlcnZpY2UiLCJpZCI6MX0=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Wind Curacao\",\r\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\r\n    \"end\": \"2016-01-01T01:00:00.000+0100\",\r\n    \"influxdb_name\": \"ESSIMInfluxDB\",\r\n    \"influx_queries\": [\r\n        {\r\n            \"database\": \"energy_profiles\",\r\n            \"measurement\": \"wind-curacao-2015\",\r\n            \"field\": \"value\",\r\n            \"function\": \"sum\",\r\n            \"alias\": \"wind profile\",\r\n            \"yaxis\": \"left\"\r\n        }\r\n    ],\r\n    \"yaxes\": [\r\n    \t\"percent\"\r\n    ],\r\n    \"thresholds\": [\r\n    ],\r\n    \"theme\": \"light\",\r\n    \"grafana_graph_params\": {\r\n    \t\"lineWidth\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

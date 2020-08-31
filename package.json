@@ -1,0 +1,14 @@
+{
+    "private": true,
+    "scripts": {
+        "docker:build": "docker build -t panel-service .",
+        "docker:tag": "docker tag panel-service 127.0.0.1:5000/panel-service",
+        "docker:publish": "docker push 127.0.0.1:5000/panel-service",
+        "docker:remove": "make remove",
+        "docker:network": "docker network create --driver=overlay panel-service",
+        "docker:deploy": "make deploy",
+        "docker:deploy:grafana": "make deploy-grafana",
+        "docker": "npm run docker:build && npm run docker:tag && npm run docker:publish && npm run docker:remove && npm run docker:deploy"
+    },
+    "name": "panel-service"
+}

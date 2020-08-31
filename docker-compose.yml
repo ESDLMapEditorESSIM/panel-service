@@ -1,0 +1,57 @@
+version: "3.3"
+
+
+services:
+  api:
+    build: .
+    image: 127.0.0.1:5000/panel_service
+    volumes:
+     - .:/code
+    depends_on:
+      - grafana
+    entrypoint: >
+      watchmedo auto-restart
+          --recursive
+          --pattern="*.py"
+          --directory="."
+          --
+    command: ["gunicorn", "influxdbgraphs.api.main:app", "-t 300", "-w 1", "-b :5000"]
+    ports:
+      - 3400:5000
+      - 9200:5678
+    environment:
+      - ENV=dev
+      - INTERNAL_GRAFANA_HOST=grafana
+      - INTERNAL_GRAFANA_PORT=3000
+      - EXTERNAL_GRAFANA_URL=http://localhost:3401
+    env_file:
+      - panel_service.env
+
+  influxdb:
+    image: influxdb:1.7.9
+    volumes:
+      - influxdb-data:/var/lib/influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_DB=energy_profiles
+      - INFLUXDB_WRITE_USER=edr
+      - INFLUXDB_WRITE_USER_PASSWORD=edr
+
+  grafana:
+    image: grafana/grafana:6.5.1
+    volumes:
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - influxdb
+    ports:
+      - "3401:3000"
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_SERVER_ROOT_URL=http://localhost:3401
+      - GF_SECURITY_ALLOW_EMBEDDING=True
+
+
+volumes:
+  influxdb-data:
+  grafana-data:

@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "ce088af2-9943-4f35-b641-f6bd46669b09",
+		"name": "Queries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/queries?measurement=nedu_aardgas_2015-2018&field=G1A&function=mean",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"queries"
+					],
+					"query": [
+						{
+							"key": "database",
+							"value": "autogen",
+							"disabled": true
+						},
+						{
+							"key": "measurement",
+							"value": "nedu_aardgas_2015-2018"
+						},
+						{
+							"key": "field",
+							"value": "G1A"
+						},
+						{
+							"key": "function",
+							"value": "mean"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

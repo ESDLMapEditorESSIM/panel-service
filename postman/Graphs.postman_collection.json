@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "41834723-0211-49c4-a85a-e735fa8ca18f",
+		"name": "Graphs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Cotap_Elektra_Oosterburgstr38\",\n    \"start\": \"2019-01-01T00:00:00.000+0100\",\n    \"end\": \"2020-01-01T01:00:00.000+0100\",\n    \"influxdb_name\": \"ESSIM-Genemuiden\",\n    \"influx_queries\": [\n        {\n            \"measurement\": \"genemuiden_GV_2019\",\n            \"field\": \"Cotap_Elektra_Oosterburgstr38\",\n            \"function\": \"sum\",\n            \"yaxis\": \"left\"\n        }\n    ],\n    \"yaxes\": [{\n    \t\"format\": \"percent\",\n    \t\"min\": null\n    }],\n    \"thresholds\": [\n    ],\n    \"theme\": \"light\",\n    \"grafana_graph_params\": {\n    \t\"lineWidth\": 1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create (influxdb by URL example)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Elektriciteit huishoudens 2015 (NEDU E1A)\",\n    \"start\": \"2015-01-01T00:00:00.000+0100\",\n    \"end\": \"2016-01-01T00:00:00.000+0100\",\n    \"influxdb\": {\n        \"url\": \"https://edr.hesi.energy/profiledb\",\n        \"database\": \"energy_profiles\"\n    },\n    \"influx_queries\": [\n        {\n            \"measurement\": \"nedu_elektriciteit_2015-2018\",\n            \"field\": \"E1A\",\n            \"alias\": \"E1A\"\n        }\n    ],\n    \"theme\": \"light\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create (full example)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Test Dashboard\",\n    \"start\": \"2010-01-01T00:00:00.000+0100\",\n    \"end\": \"2011-01-01T01:00:00.000+0100\",\n    \"influxdb_name\": \"EDR-profiles\",\n    \"raw_influx_queries\": [\n        {\n        \t\"query\": \"SELECT mean(\\\"E2A\\\") FROM \\\"autogen\\\".\\\"nedu_elektriciteit_2010-2014\\\" WHERE $timeFilter GROUP BY time($__interval) fill(null)\",\n            \"alias\": \"E2A\"\n        }\n    ],\n    \"influx_queries\": [\n        {\n            \"measurement\": \"nedu_elektriciteit_2010-2014\",\n            \"field\": \"E1A\",\n            \"function\": \"sum\",\n            \"alias\": \"E1A\",\n            \"filters\": [\n\t\t    \t\"E1A < 5\"\n\t\t    ],\n            \"yaxis\": \"right\"\n\t\t    \n        }\n    ],\n    \"yaxes\": [{\n    \t\"format\": \"litre\"\n    }, {\n    \t\"format\": \"watth\",\n    \t\"min\": null\n    }],\n    \"thresholds\": [\n    \t{\n    \t\t\"value\": 0.00003,\n    \t\t\"op\": \"gt\"\n    \t}\n    ],\n    \"theme\": \"light\",\n    \"grafana_graph_params\": {\n    \t\"lineWidth\": 1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create (raw query example)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Nedu Elektra 2010-2014\",\n\t\"start\": \"2010-01-01T00:00:00\",\n\t\"end\": \"2014-12-31T14:00:00\",\n\t\"influxdb_name\": \"EDR-profiles\",\n\t\"raw_influx_queries\": [\n\t\t{\n\t\t\t\"query\": \"SELECT mean(\\\"E1A\\\") FROM \\\"autogen\\\".\\\"nedu_elektriciteit_2010-2014\\\" WHERE $timeFilter GROUP BY time($__interval) fill(null)\",\n\t\t\t\"alias\": \"E1A\"\n\t\t},\n\t\t{\n\t\t\t\"query\": \"SELECT mean(\\\"E2A\\\") FROM \\\"autogen\\\".\\\"nedu_elektriciteit_2010-2014\\\" WHERE $timeFilter GROUP BY time($__interval) fill(null)\"\n\t\t}\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/jb8moCEZk",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						"jb8moCEZk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphs/wwN7ABfZk?panel_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphs",
+						"wwN7ABfZk"
+					],
+					"query": [
+						{
+							"key": "panel_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
