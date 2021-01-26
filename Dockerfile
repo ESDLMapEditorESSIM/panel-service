@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:3.9
 
 ENV ENV=prod
 ENV INTERNAL_GRAFANA_HOST=panel_service_grafana
