@@ -57,4 +57,90 @@ To stop, execute:
 make remove
 ```
 
+## Examples
 
+### Full example of creating panel
+
+POST to /graphs/
+
+```json
+{
+    "title": "Test Dashboard",
+    "start": "2010-01-01T00:00:00.000+0100",
+    "end": "2011-01-01T01:00:00.000+0100",
+    "influxdb_name": "EDR-profiles",
+    "raw_influx_queries": [
+        {
+        	"query": "SELECT mean(\"E2A\") FROM \"autogen\".\"nedu_elektriciteit_2010-2014\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+            "alias": "E2A"
+        }
+    ],
+    "influx_queries": [
+        {
+            "measurement": "nedu_elektriciteit_2010-2014",
+            "field": "E1A",
+            "function": "sum",
+            "alias": "E1A",
+            "filters": [
+		    	"E1A < 5"
+		    ],
+            "yaxis": "right"
+		    
+        }
+    ],
+    "yaxes": [{
+    	"format": "litre"
+    }, {
+    	"format": "watth",
+    	"min": null
+    }],
+    "thresholds": [
+    	{
+    		"value": 0.00003,
+    		"op": "gt"
+    	}
+    ],
+    "theme": "light",
+    "grafana_graph_params": {
+    	"lineWidth": 1
+    }
+}
+```
+
+### Create data source
+
+POST to /influxdbs/
+
+```json
+{
+	"name": "EDRProfileDB",
+	"url": "https://edr.hesi.energy/profiledb",
+	"database_name": "energy_profiles",
+	"basic_auth_user": "username",
+	"basic_auth_password": "password"
+}
+```
+
+### Create query and refer to influxdb by URL.
+
+POST to /graphs/
+
+```json
+{
+    "title": "Elektriciteit huishoudens 2015 (NEDU E1A)",
+    "start": "2015-01-01T00:00:00.000+0100",
+    "end": "2016-01-01T00:00:00.000+0100",
+    "influxdb": {
+        "url": "https://edr.hesi.energy/profiledb",
+        "database": "energy_profiles"
+    },
+    "influx_queries": [
+        {
+            "measurement": "nedu_elektriciteit_2015-2018",
+            "field": "E1A",
+            "alias": "E1A"
+        }
+    ],
+    "theme": "light"
+}
+```
