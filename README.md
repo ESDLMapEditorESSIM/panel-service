@@ -84,8 +84,9 @@ POST to /graphs/
             "filters": [
 		    	"E1A < 5"
 		    ],
-            "yaxis": "right"
-		    
+            "yaxis": "right",
+		    "group_by_time": "$__interval",
+            "fill": "null"
         }
     ],
     "yaxes": [{

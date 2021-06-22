@@ -108,12 +108,14 @@ class InfluxDbQuery:
     alias: Optional[str]
     yaxis: Optional[str]
     filters: Optional[List[str]]
+    group_by_time: Optional[str] = "$__interval"
+    fill: Optional[str] = "null"
     function: Optional[str] = "mean"
 
     def build(self) -> RawInfluxDbQuery:
         filters = self.filters or []
         query = build_raw_influx_query(
-            self.field, self.measurement, self.function, filters
+            self.field, self.measurement, self.function, filters, self.group_by_time, self.fill
         )
         alias = self.alias if self.alias else f"{self.measurement}.{self.function}"
         return RawInfluxDbQuery(query=query, alias=alias, yaxis=self.yaxis)
@@ -126,7 +128,7 @@ class InfluxDbQuery:
         return jsons.load(value, cls)
 
 
-def build_raw_influx_query(field, measurement, function, filters) -> str:
+def build_raw_influx_query(field, measurement, function, filters, group_by_time="$__interval", fill="null") -> str:
     """
     Build a raw InfluxDB query.
     """
@@ -136,7 +138,7 @@ def build_raw_influx_query(field, measurement, function, filters) -> str:
     query = f"""
     SELECT {function}("{field}")
     FROM "{measurement}"
-    WHERE {string_filters} GROUP BY time($__interval) fill(null)
+    WHERE {string_filters} GROUP BY time({group_by_time}) fill({fill})
     """
 
     return textwrap.dedent(query).replace("\n", " ").strip()
