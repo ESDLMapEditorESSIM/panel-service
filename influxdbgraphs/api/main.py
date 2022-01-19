@@ -28,6 +28,7 @@ from influxdbgraphs.log import get_logger
 
 logger = get_logger(__name__)
 
+FLASK_SERVER_HOST = "0.0.0.0"
 
 def create_app(object_name):
     """
@@ -74,3 +75,12 @@ def after_request(response):
         response.status,
     )
     return response
+
+
+if __name__ == "__main__":
+    app.run(
+        host=FLASK_SERVER_HOST,
+        port=3400,
+        use_reloader=True,
+        use_debugger=True,
+    )
