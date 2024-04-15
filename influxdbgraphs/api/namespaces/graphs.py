@@ -240,7 +240,7 @@ class Graphs(Resource):
 @graphs.route("/<string:dashboard_uid>")
 class Graph(Resource):
     """
-    Resource for approacing a single graph.
+    Resource for approaching a single graph.
     """
 
     @accepts(dict(name="panel_id", type=int), api=graphs)
