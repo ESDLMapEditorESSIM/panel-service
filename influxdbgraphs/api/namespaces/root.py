@@ -42,7 +42,7 @@ class Welcome(Resource):
                     graphs=HALLink("/graphs", "Create graphs."),
                     queries=HALLink("/queries", "Build InfluxQL queries."),
                 ),
-                message="Welcome to the InfluxDB Graphs API.",
+                message="Welcome to the Panel Service API.",
             )
         )
 

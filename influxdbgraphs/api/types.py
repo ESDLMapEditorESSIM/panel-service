@@ -18,8 +18,7 @@ from dataclasses import dataclass
 from typing import List, Optional
 
 import jsons
-from grafanalib.core import (DAYS_FORMAT, HOURS_FORMAT, MINUTES_FORMAT,
-                             SECONDS_FORMAT)
+from grafanalib.core import DAYS_FORMAT, HOURS_FORMAT, MINUTES_FORMAT, SECONDS_FORMAT
 
 NONE_FORMAT = "none"
 
@@ -79,6 +78,7 @@ YAXIS_TYPES = [
     VOLT_AMPERE_FORMAT,
 ]
 
+
 @dataclass
 class RawInfluxDbQuery:
     """
@@ -105,6 +105,7 @@ class InfluxDbQuery:
 
     field: str
     measurement: str
+    multiplier: Optional[float]
     alias: Optional[str]
     yaxis: Optional[str]
     filters: Optional[List[str]]
@@ -115,7 +116,13 @@ class InfluxDbQuery:
     def build(self) -> RawInfluxDbQuery:
         filters = self.filters or []
         query = build_raw_influx_query(
-            self.field, self.measurement, self.function, filters, self.group_by_time, self.fill
+            self.field,
+            self.measurement,
+            self.function,
+            filters,
+            multiplier=self.multiplier,
+            group_by_time=self.group_by_time,
+            fill=self.fill,
         )
         alias = self.alias if self.alias else f"{self.measurement}.{self.function}"
         return RawInfluxDbQuery(query=query, alias=alias, yaxis=self.yaxis)
@@ -128,15 +135,27 @@ class InfluxDbQuery:
         return jsons.load(value, cls)
 
 
-def build_raw_influx_query(field, measurement, function, filters, group_by_time="$__interval", fill="null") -> str:
+def build_raw_influx_query(
+    field,
+    measurement,
+    function,
+    filters,
+    multiplier: Optional[float] = None,
+    group_by_time="$__interval",
+    fill="null",
+) -> str:
     """
     Build a raw InfluxDB query.
     """
     copied_filters = filters.copy()
     copied_filters.append("$timeFilter")
     string_filters = " AND ".join(copied_filters)
+    if multiplier:
+        multiplier = f"{multiplier} * "
+    else:
+        multiplier = ""
     query = f"""
-    SELECT {function}("{field}")
+    SELECT {multiplier}{function}("{field}")
     FROM "{measurement}"
     WHERE {string_filters} GROUP BY time({group_by_time}) fill({fill})
     """

@@ -39,7 +39,7 @@ def create_app(object_name):
         object_name: the python path of the config object,
                      e.g. influxdbgraphs.api.settings.ProdConfig
     """
-    logger.info("Setting up InfluxDB Graphs app.")
+    logger.info("Setting up Panel Service app.")
 
     app = Flask(__name__)
     CORS(app)
@@ -53,7 +53,7 @@ def create_app(object_name):
 
     api.init_app(app)
 
-    logger.info("Finished setting up InfluxDB Graphs app.")
+    logger.info("Finished setting up Panel Service app.")
 
     return app
 
